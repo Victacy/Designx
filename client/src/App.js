@@ -2,16 +2,14 @@ import React,{useEffect,createContext,useReducer,useContext} from 'react'
 import {BrowserRouter as Router,Switch,Route,useHistory} from 'react-router-dom';
 import './App.css'
 import Navbar from './components/Navbar.js'
-// import AddDetails from './components/AddDetails.js'
-// import EditDetails from './components/EditDetails.js'
+
 import Home from './pages/Home'
 import Signup from './pages/Signup'
 import Login from './pages/Login'
 import Profile from './pages/Profile'
 import Work from './pages/Work'
-import Home2 from './pages/Home2'
 import User from './pages/User'
-// import Details from './pages/Details'
+
 import {reducer,initialState} from './reducers/userReducer'
 
 export const UserContext = createContext()
@@ -32,7 +30,6 @@ const Position =() =>{
   return(
   <Switch>
   <Route exact path='/' component={Home}/>
-  <Route path='/intro' component={Home2}/>
   <Route path='/login' component={Login}/>
   
   <Route path='/signup' component={Signup}/>

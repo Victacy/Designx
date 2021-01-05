@@ -24,7 +24,7 @@ function Navbar() {
         ]
       }else{
         return [
-          <li><Link to="/intro">Home</Link></li>,
+          
           <li><Link to="/signup">Signup</Link></li>,
           <li><Link to="/login">Login</Link></li>
         ]
