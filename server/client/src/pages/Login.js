@@ -5,8 +5,8 @@ import M from 'materialize-css'
 
 
 function Login() {
-    const {state,dispatch}=useContext(UserContext)
-    const history=useHistory()
+        const {state,dispatch}=useContext(UserContext)
+        const history=useHistory()
         const [email, setEmail] = useState("");
         const [password, setPassword] = useState("");
 
@@ -67,7 +67,10 @@ function Login() {
                   <input type="checkbox" className="filled-in"  />
                   <span>Remember me</span>
                 </label>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <Link to='/forgot' className="pot">Forgot Password</Link>
               </p></form>
+              
                  <button className="btn waves-effect waves-light #00c853 green accent-4"
                  type="submit" onClick={() =>PostData()}>
                     Login

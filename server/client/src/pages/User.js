@@ -18,11 +18,12 @@ function User() {
             }
         }).then(res=>res.json())
         .then(result=>{
-            //console.log(result)
+            console.log(result)
           
              setProfile(result)
         })
      },[])
+
     return (
         <>
               {userProfile ?
@@ -33,17 +34,16 @@ function User() {
                margin:"18px 0px",
                borderBottom:"1px solid grey"
            }}>
-               {/* <div>
-               <img style={{width:"160px",height:"160px",borderRadius:"80px"}}
-                   src={userProfile.user.pic}
-                   alt=''/>
-                   
-               </div> */}
+               <div>
+                   <img style={{width:"160px",height:"160px",borderRadius:"80px"}}
+                   src={userProfile.user.pic} alt=""
+                   />
+               </div>
                <div>
                    <h4>{userProfile.user.name}</h4>
                    <h5>{userProfile.user.email}</h5>
                    <div style={{display:"flex",justifyContent:"space-between",width:"108%"}}>
-                       <h6>{userProfile.posts.length} posts</h6>
+                       <h6>{userProfile.works.length} views</h6>
                        <h6>10 views</h6>
                    </div>
             </div>

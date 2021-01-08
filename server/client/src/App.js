@@ -6,9 +6,10 @@ import Navbar from './components/Navbar.js'
 import Home from './pages/Home'
 import Signup from './pages/Signup'
 import Login from './pages/Login'
-import Profile from './pages/Profile'
+ import Profile from './pages/Profile'
 import Work from './pages/Work'
 import User from './pages/User'
+
 
 import {reducer,initialState} from './reducers/userReducer'
 
@@ -31,7 +32,6 @@ const Position =() =>{
   <Switch>
   <Route exact path='/' component={Home}/>
   <Route path='/login' component={Login}/>
-  
   <Route path='/signup' component={Signup}/>
   <Route exact path='/profile' component={Profile}/>
   <Route path='/work' component={Work}/>

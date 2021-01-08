@@ -111,12 +111,14 @@ function Signup() {
             <input className="file-path validate" type="text"/>
         </div>
         </div>
-
+     
                     <form action="#" className="lit"><p>
               <label>
                 <input type="checkbox" class="filled-in" />
                 <span>Remember me</span>
               </label>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <Link to='/forgot' className="pot">Forgot Password</Link>
             </p></form>
                         <div className="switch lit">
                 <label>
@@ -125,7 +127,7 @@ function Signup() {
                   I agree to the Terms and Conditions
                 </label>
               </div>
-
+             
              <button className="btn waves-effect waves-light #00c853 green accent-4" type="submit" onClick={() =>PostData()}>
                 Signup
             </button>

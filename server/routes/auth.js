@@ -1,29 +1,10 @@
 const express=require('express')
 const router=express.Router()
 const User = require('../models/user')
-// const crypto=require('crypto')
 const bcrypt=require('bcrypt')
 const jwt=require('jsonwebtoken')
 const {JWT_SECRET}=require("../config/key")
 const requireLogin=require('../middleware/requiredLogin')
-// const nodemailer=require('nodemailer')
-// const sendgridTransport=require('nodemailer-sendgrid-transport')
-
-
-// const transporter=nodemailer.createTransport(sendgridTransport({
-//     auth:{
-//         api_key:"   "
-//     }
-// }))
-
-// router.get('/',(req,res) =>{
-//     res.send('Hello')
-// })
-router.get('/protected',requireLogin,(req,res) =>{
-    res.send("Hello user")
-})
-
-
 
 router.post('/signup',(req,res) =>{
     const {name,email,password,pic}=req.body
@@ -46,12 +27,7 @@ router.post('/signup',(req,res) =>{
             })
             user.save()
             .then(user =>{
-                // transporter.sendMail({
-                //     to:user.email,
-                //     from:"no-reply@designx.com",
-                //     subject:"successfully created an account",
-                //     html:`<h1>Welcome to designx</h1> <br/><h4>At designx we help you as a designer or a viewer to either add your works to our website and also view others</h4>`"
-                // })
+
                 res.json({message:"Successfully saved"})
             }).catch(err =>{
                 console.log(err)
@@ -98,34 +74,7 @@ router.post('/login',(req,res) => {
 })
 
 
-// router.post('reset-password',(req,res) => {
-//     crypto.randomBytes(32,(err,buffer) => {
-//         if(err){
-//             console.log(error)
-//         }
-//         const token=buffer.toString("hex")
-//         User.findOne({email:req.body.email})
-//         .then(user => {
-//             if(!user){
-//                 return res.status(422).json({error:"User with that emil doesn't exists"})
-//             }
-//             user.resetToken=token
-//             user.expireToken=Date.now() | 3600000
-//             user.save()
-//             .then((result) => {
-//                 transporter.sendMail({
-//                     to:user.email,
-//                     from:"no-reply@designx.com",
-//                     subject:"reset password",
-//                     html:`
-//                     <p>You requested for a password reset</p>
-//                     <h5>Clink on this <a href="http://localhost:3000/reset/${token}">link</a> to reset your password</h5>
-//                     `
-//                 })
-//                 res.json({message:"Check your email"})
-//             })
-//         })
-//     })
-// })
+
+
 
 module.exports=router

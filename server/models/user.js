@@ -1,5 +1,5 @@
 const mongoose=require('mongoose')
-
+// const {ObjectId}=mongoose.Schema.Types
 
 const userSchema = new mongoose.Schema({
     name:{
@@ -16,11 +16,12 @@ const userSchema = new mongoose.Schema({
     },
     resetToken:String,
     expireToken:Date,
-    pic:{
+    photo:{
         type:String,
         default:"https://res.cloudinary.com/victory/image/upload/v1609269817/download_pg1fyo.png"
     }
-
+    // viewers:[{type:ObjectId,ref:"User"}],
+    // views:[{type:ObjectId,ref:"User"}]
 })
 
 

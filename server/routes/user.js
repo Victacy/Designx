@@ -10,7 +10,7 @@ router.get('/user/:id',requireLogin,(req,res)=>{
     User.findOne({_id:req.params.id})
     .select("-password")
     .then(user=>{
-         Post.find({postedBy:req.params.id})
+         Work.find({postedBy:req.params.id})
          .populate("postedBy","_id name")
          .exec((err,works)=>{
              if(err){
@@ -23,6 +23,7 @@ router.get('/user/:id',requireLogin,(req,res)=>{
     })
 })
 
+
 router.put('/updatepic',requireLogin,(req,res)=>{
     User.findByIdAndUpdate(req.user._id,{$set:{pic:req.body.pic}},{new:true},
         (err,result)=>{
@@ -31,6 +32,19 @@ router.put('/updatepic',requireLogin,(req,res)=>{
          }
          res.json(result)
     })
+})
+
+
+router.post('/search',(req,res)=>{
+    let userPattern = new RegExp("^"+req.body.query)
+    User.find({email:{$regex:userPattern}})
+     .select("_id name")
+    .then(user=>{
+        res.json({user})
+    }).catch(err=>{
+        console.log(err)
+    })
+
 })
 
 

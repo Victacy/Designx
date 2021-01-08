@@ -1,6 +1,6 @@
 import React,{useState,useEffect,useContext} from 'react'
 import {UserContext} from '../App'
-import {Link} from 'react-router-dom'
+
 
 function Profile() {
     const [mypics,setPics] = useState([])
@@ -8,7 +8,7 @@ function Profile() {
     const [image,setImage] =useState("")
     
     // console.log(state)
-    React.useEffect(()=>{
+    useEffect(()=>{
         fetch('/mypost',{
             headers:{
                 "Authorization":"Bearer "+localStorage.getItem("jwt")
@@ -46,7 +46,6 @@ function Profile() {
                 console.log(result)
                 localStorage.setItem("user",JSON.stringify({...state,pic:result.pic}))
                 dispatch({type:"UPDATEPIC",payload:result.pic})
-                //window.location.reload()
             })
         
          })
@@ -65,27 +64,17 @@ function Profile() {
             <div style={{margin:"18px 0px",borderBottom:"1px solid grey"}}>
             <div style={{display:"flex",justifyContent:"space-around"}}>
             <div>
-            {/* ,borderRadius:"80px" */}
-                <img style={{width:"160px",height:"160px",borderRadius:"80px"}} 
-                src={state?state.pic:"loading"} alt=""/>
-                
-            </div>
-            <div  >
-                <h4>{state?state.name:"loading"} 
-                {/* <button className="btn waves-effect waves-light #0091ea light-blue accent-4 hope" type="submit"> */}
-                    
-                {/* <Link to="/details" className="btn waves-effect waves-light #0091ea light-blue accent-4 hope">User Info</Link> */}
-                
-                
-            {/* </button> */}
-                </h4>
-                <h5>{state?state.email:"loading"}</h5>
-                <div style={{display:"flex",width:"108%",justifyContent:"space-between"}}>
-                    <h6>{mypics.length} works</h6>
-                    <h6>40 views</h6>
-                    
-
-                </div>
+                   <img style={{width:"160px",height:"160px",borderRadius:"80px"}}
+                   src={state?state.pic:"loading"} alt=""/>
+                 
+               </div>
+               <div>
+                   <h4>{state?state.name:"loading"}</h4>
+                   <h5>{state?state.email:"loading"}</h5>
+                   <div style={{display:"flex",justifyContent:"space-between",width:"108%"}}>
+                       <h6>{mypics.length} works</h6>
+                       <h6>40 views</h6>
+                   </div>
             </div>
             </div>
         
@@ -98,13 +87,19 @@ function Profile() {
                 <input className="file-path validate" type="text" />
             </div>
             </div>
-            </div>
+            </div>   
+        +
+
+
+
+
+
         
-        <div className="gallery">
-        {
-                  mypics && mypics.map(item=>{
+            <div className="gallery">
+               {
+                   mypics.map(item=>{
                        return(
-                        <img key={item._id} className="item" src={item.pic} alt={item.title}/>  
+                        <img key={item._id} className="item" src={item.photo} alt={item.title}/>  
                        )
                    })
                }

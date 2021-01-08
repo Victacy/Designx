@@ -82,3 +82,11 @@ background-position: top left;
   background-color: #e0f802;
   
 }
+
+.collection-item{
+  width: 100%;
+}
+
+.pot{
+  text-align: right;
+}

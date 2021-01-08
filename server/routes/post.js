@@ -9,6 +9,7 @@ router.get('/allwork',requireLogin,(req,res) =>{
     Work.find()
     .populate("postedBy","_id name")
     .populate("comments.postedBy","_id name")
+    .sort('-createdAt')
     .then(works => {
         res.json({works})
     })
@@ -29,7 +30,7 @@ router.post('/creatework',requireLogin,(req,res) =>{
     const work=new Work({
         title:title,
         body:body,
-        pic:pic,
+        photo:pic,
         postedBy:req.user
     })
     work.save()
